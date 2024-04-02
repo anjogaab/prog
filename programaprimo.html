@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabela de multiplicação</title>
+</head>
+<body>
+  <h2>Insira um número para obter a sua tabuada:</h2>
+  <input type="number" id="numberInput" min="1" value="1" />
+  <button onclick="generateMultiplicationTable()">Gerar</button>
+  <div id="result"></div>
+
+  <script>
+    function generateMultiplicationTable() {
+      const inputElement = document.getElementById("numberInput");
+      const number = parseInt(inputElement.value);
+      let output = "";
+
+      if (Number.isInteger(number)) {
+        for (let i = 1; i <= 10; i++) {
+          output += `${number} x ${i} = ${number * i}\n`;
+        }
+      } else {
+        output = "Por favor, insira um número inteiro válido.";
+      }
+
+      const resultElement = document.getElementById("result");
+      resultElement.textContent = output;
+    }
+  </script>
+</body>
+</html>
